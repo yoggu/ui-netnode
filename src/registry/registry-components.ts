@@ -5,13 +5,13 @@ export const ui: Registry = [
     name: "section",
     type: "registry:ui",
     registryDependencies: ["tooltip"],
-    files: ["ui/section.tsx"],
+    files: ["ui/Section.tsx"],
   },
   {
     name: "section-hero-1",
     type: "registry:block",
     registryDependencies: ["https://www.uicart.io/registry/hint.json"],
-    files: ["block/section-hero-1/section-hero-1.tsx"],
+    files: ["block/section-hero-1/SectionHero1.tsx"],
   },
   // {
   //   name: "sidebar-01",

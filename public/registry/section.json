@@ -1,0 +1,15 @@
+{
+  "name": "section",
+  "type": "registry:ui",
+  "registryDependencies": [
+    "tooltip"
+  ],
+  "files": [
+    {
+      "type": "registry:ui",
+      "content": "import React from 'react';\nimport { cva, VariantProps } from 'class-variance-authority';\n\nimport { cn } from '@/lib/utils';\n\n// Customized section variants\nconst sectionVariants = cva('', {\n  variants: {\n    marginTop: {\n      none: 'pt-0',\n      small: 'pt-2',\n      medium: 'pt-4',\n      large: 'pt-16',\n      xlarge: 'pt-32',\n    },\n    marginBottom: {\n      none: 'pb-0',\n      small: 'pb-2',\n      medium: 'pb-4',\n      large: 'pb-16',\n      xlarge: 'pb-32',\n    },\n  },\n  defaultVariants: {\n    marginTop: 'none',\n    marginBottom: 'none',\n  },\n});\n\ninterface SectionProps extends VariantProps<typeof sectionVariants> {\n  name: string;\n  backgroundColor?: string; // Tailwind background color classes\n  image_src?: string; // Optional background image source\n  className?: string; // For additional generic classes\n  children?: React.ReactNode;\n}\n\nconst Section = ({\n  name = '',\n  backgroundColor = '',\n  image_src,\n  marginTop,\n  marginBottom,\n  className,\n  children,\n}: SectionProps) => {\n  const style = image_src\n    ? {\n        backgroundImage: `url(${image_src})`,\n        backgroundSize: 'cover',\n        backgroundPosition: 'center',\n        backgroundRepeat: 'no-repeat',\n      }\n    : undefined;\n\n  return (\n    <section\n      id={name}\n      className={cn(\n        backgroundColor,\n        sectionVariants({ marginTop, marginBottom }),\n        className\n      )}\n      style={style}\n    >\n      {children}\n    </section>\n  );\n};\n\nexport default Section;\n",
+      "path": "ui/Section.tsx",
+      "target": "components/ui/Section.tsx"
+    }
+  ]
+}
