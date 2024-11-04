@@ -2,7 +2,7 @@
   "name": "section-hero-1",
   "type": "registry:block",
   "registryDependencies": [
-    "https://www.uicart.io/registry/hint.json"
+    "https://ui-netnode.vercel.app/registry/section.json"
   ],
   "files": [
     {

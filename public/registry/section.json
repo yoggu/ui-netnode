@@ -1,9 +1,6 @@
 {
   "name": "section",
   "type": "registry:ui",
-  "registryDependencies": [
-    "tooltip"
-  ],
   "files": [
     {
       "type": "registry:ui",

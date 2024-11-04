@@ -4,13 +4,12 @@ export const ui: Registry = [
   {
     name: "section",
     type: "registry:ui",
-    registryDependencies: ["tooltip"],
     files: ["ui/Section.tsx"],
   },
   {
     name: "section-hero-1",
     type: "registry:block",
-    registryDependencies: ["https://www.uicart.io/registry/hint.json"],
+    registryDependencies: ["https://ui-netnode.vercel.app/registry/section.json"],
     files: ["block/section-hero-1/SectionHero1.tsx"],
   },
   // {
