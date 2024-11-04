@@ -1,0 +1,12 @@
+{
+  "name": "display-title",
+  "type": "registry:ui",
+  "files": [
+    {
+      "type": "registry:ui",
+      "content": "import React, { FC } from 'react';\nimport { cva, VariantProps } from 'class-variance-authority';\n\nimport { cn } from '@/lib/utils';\n\n// Customized title variations\nconst titleVariants = cva(\n  'font-semibold tracking-tighter lg:-ml-1.5 lg:tracking-tighter !leading-[1.1]', // Base styles\n  {\n    variants: {\n      size: {\n        lg: 'text-3xl md:text-6xl lg:text-6xl',\n        xl: 'text-4xl md:text-7xl lg:text-7xl',\n        xxl: 'text-6xl md:text-8xl lg:text-8xl',\n        xxxl: 'text-6xl md:text-8xl lg:text-9xl',\n      },\n\n    },\n    defaultVariants: {\n      size: 'xxl',\n    },\n  }\n);\n\ntype DisplayTitleTag = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'div';\n\ninterface DisplayTitleProps extends VariantProps<typeof titleVariants> {\n  children: React.ReactNode;\n  className?: string;\n  tag?: DisplayTitleTag;\n}\n\nconst DisplayTitle: FC<DisplayTitleProps> = ({\n  children,\n  size,\n  className,\n  tag = 'h1', // Default tag is h1\n}) => {\n  const Tag = tag;\n  return (\n    <Tag className={cn(titleVariants({ size }), className)}>{children}</Tag>\n  );\n};\n\nexport default DisplayTitle;\n",
+      "path": "ui/DisplayTitle.tsx",
+      "target": "components/ui/DisplayTitle.tsx"
+    }
+  ]
+}

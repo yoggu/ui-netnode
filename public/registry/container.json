@@ -1,0 +1,12 @@
+{
+  "name": "container",
+  "type": "registry:ui",
+  "files": [
+    {
+      "type": "registry:ui",
+      "content": "import React from 'react';\nimport { cva, VariantProps } from 'class-variance-authority';\n\nimport { cn } from '@/lib/utils';\n\n// Customized container variations\nconst containerVariants = cva(\n  'px-6', // Base class applied to all variants\n  {\n    variants: {\n      width: {\n        full: 'w-full',\n        wide: 'mx-auto w-full max-w-[1440px] md:px-16',\n        narrow: 'mx-auto max-w-6xl md:px-16',\n        slim: 'mx-auto max-w-4xl md:px-16',\n      },\n      height: {\n        slim: 'min-h-64',\n        hero_sub: 'md:min-h-[250px]', // used in hero sub-section\n        regular: 'md:min-h-[350px]',\n        auto: 'h-auto',\n      },\n    },\n    defaultVariants: {\n      width: 'wide',\n      height: 'auto',\n    },\n  }\n);\n\ninterface ContainerProps extends VariantProps<typeof containerVariants> {\n  className?: string;\n  children?: React.ReactNode;\n}\n\nconst Container = ({ width, height, className, children }: ContainerProps) => {\n  return (\n    <div className={cn(containerVariants({ width, height }), className)}>\n      {children}\n    </div>\n  );\n};\n\nexport default Container;\n",
+      "path": "ui/Container.tsx",
+      "target": "components/ui/Container.tsx"
+    }
+  ]
+}

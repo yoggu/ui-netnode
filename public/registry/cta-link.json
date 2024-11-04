@@ -1,0 +1,12 @@
+{
+  "name": "cta-link",
+  "type": "registry:ui",
+  "files": [
+    {
+      "type": "registry:ui",
+      "content": "import React, { LinkHTMLAttributes } from 'react';\nimport { cva, VariantProps } from 'class-variance-authority';\nimport { ChevronRight } from 'lucide-react';\n\nimport { cn } from '@/lib/utils';\n\n// Customized button variations\nconst linkVariants = cva(`text-base block hover:text-primary`, {\n  variants: {\n    variant: {\n      simple: 'underline underline-offset-4',\n      chevron: 'underline underline-offset-4',\n    },\n    size: {\n      sm: 'text-sm',\n      base: 'text-base',\n      lg: 'text-xl',\n    },\n  },\n  defaultVariants: {\n    size: 'base',\n    variant: 'simple',\n  },\n});\n\nexport interface LinkProps\n  extends LinkHTMLAttributes<HTMLAnchorElement>,\n    VariantProps<typeof linkVariants> {\n  className?: string;\n}\n\nconst CTALink = ({\n  size,\n  variant,\n  className,\n  children,\n  ...props\n}: LinkProps) => {\n  return (\n    <a className={cn(linkVariants({ className, variant, size }))} {...props}>\n      {children}\n      {variant === 'chevron' && (\n        <>\n          <ChevronRight size={16} className=\"ml-1 inline-block\" />\n        </>\n      )}\n    </a>\n  );\n};\n\nexport default CTALink;\n",
+      "path": "ui/CTALink.tsx",
+      "target": "components/ui/CTALink.tsx"
+    }
+  ]
+}

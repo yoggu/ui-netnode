@@ -1,0 +1,12 @@
+{
+  "name": "body-copy",
+  "type": "registry:ui",
+  "files": [
+    {
+      "type": "registry:ui",
+      "content": "import React from 'react';\nimport { cva, VariantProps } from 'class-variance-authority';\n\nimport { cn } from '@/lib/utils';\n\n// Define the variants using cva\nconst bodyCopyVariants = cva('prose text-slate-600 max-w-prose', {\n  variants: {\n    size: {\n      base: 'prose-base',\n      lg: 'prose-lg',\n      sm: 'prose-sm',\n      lead: 'prose-xl',\n    },\n  },\n  defaultVariants: {\n    size: 'base',\n  },\n});\n\ninterface BodyCopyProps extends VariantProps<typeof bodyCopyVariants> {\n  text?: string;\n  color?: string;\n  className?: string;\n  children?: React.ReactNode;\n}\n\nconst BodyCopy = ({\n  text,\n  size,\n  color,\n  className,\n  children,\n}: BodyCopyProps) => {\n  return (\n    <div\n      className={cn(bodyCopyVariants({ size }), className)}\n      style={{ color }}\n    >\n      {text && <>{text}</>}\n      {/* Check if children is a string, and only pass it to FormattedText if it is */}\n\n      {children}\n    </div>\n  );\n};\n\nexport default BodyCopy;\n",
+      "path": "ui/BodyCopy.tsx",
+      "target": "components/ui/BodyCopy.tsx"
+    }
+  ]
+}

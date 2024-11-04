@@ -1,0 +1,12 @@
+{
+  "name": "box",
+  "type": "registry:ui",
+  "files": [
+    {
+      "type": "registry:ui",
+      "content": "import React, { ReactNode } from 'react';\n\ninterface BoxProps {\n  className?: string;\n  children?: ReactNode;\n}\n\nconst Box = ({ className = '', children }: BoxProps) => {\n  return <div className={className}>{children}</div>;\n};\n\nexport default Box;\n",
+      "path": "ui/Box.tsx",
+      "target": "components/ui/Box.tsx"
+    }
+  ]
+}

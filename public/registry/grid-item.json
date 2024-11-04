@@ -1,0 +1,12 @@
+{
+  "name": "grid-item",
+  "type": "registry:ui",
+  "files": [
+    {
+      "type": "registry:ui",
+      "content": "import React, { ReactNode } from 'react';\n\nimport { cn } from '@/lib/utils';\n\ninterface GridItemProps {\n  size: { [key: string]: number };\n  offset?: { [key: string]: number };\n  className?: string;\n  children?: ReactNode;\n}\n\nconst GridItem = ({ size, offset, className, children }: GridItemProps) => {\n  const colSpanClass = getColSpanClasses(size);\n  const offsetClass = getOffsetClasses(offset);\n\n  return (\n    <div className={cn(colSpanClass, offsetClass, className)}>{children}</div>\n  );\n};\n\nexport default GridItem;\n\nfunction getColSpanClasses(size: { [key: string]: number }): string {\n  return Object.entries(size)\n    .map(([breakpoint, value]) => {\n      if (breakpoint === 'base') {\n        return `col-span-${value}`;\n      } else {\n        return `${breakpoint}:col-span-${value}`;\n      }\n    })\n    .join(' ');\n}\n\nfunction getOffsetClasses(offset?: { [key: string]: number }): string {\n  if (!offset) return '';\n  return Object.entries(offset)\n    .map(([breakpoint, value]) => {\n      const startValue = value + 1; // Adjusting because grid columns start at 1\n      if (breakpoint === 'base') {\n        return `col-start-${startValue}`;\n      } else {\n        return `${breakpoint}:col-start-${startValue}`;\n      }\n    })\n    .join(' ');\n}\n",
+      "path": "ui/GridItem.tsx",
+      "target": "components/ui/GridItem.tsx"
+    }
+  ]
+}

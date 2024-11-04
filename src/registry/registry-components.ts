@@ -7,9 +7,53 @@ export const ui: Registry = [
     files: ["ui/Section.tsx"],
   },
   {
+    name: "container",
+    type: "registry:ui",
+    files: ["ui/Container.tsx"],
+  },
+  {
+    name: "grid",
+    type: "registry:ui",
+    files: ["ui/Grid.tsx"],
+  },
+  {
+    name: "grid-item",
+    type: "registry:ui",
+    files: ["ui/GridItem.tsx"],
+  },
+  {
+    name: "box",
+    type: "registry:ui",
+    files: ["ui/Box.tsx"],
+  },
+  {
+    name: "cta-link",
+    type: "registry:ui",
+    files: ["ui/CTALink.tsx"],
+  },
+  {
+    name: "display-title",
+    type: "registry:ui",
+    files: ["ui/DisplayTitle.tsx"],
+  },
+  {
+    name: "body-copy",
+    type: "registry:ui",
+    files: ["ui/BodyCopy.tsx"],
+  },
+  {
     name: "section-hero-1",
     type: "registry:block",
-    registryDependencies: ["https://ui-netnode.vercel.app/registry/section.json"],
+    registryDependencies: [
+      "https://ui-netnode.vercel.app/registry/section.json",
+      "https://ui-netnode.vercel.app/registry/container.json",
+      "https://ui-netnode.vercel.app/registry/grid.json",
+      "https://ui-netnode.vercel.app/registry/grid-item.json",
+      "https://ui-netnode.vercel.app/registry/box.json",
+      "https://ui-netnode.vercel.app/registry/cta-link.json",
+      "https://ui-netnode.vercel.app/registry/display-title.json",
+      "https://ui-netnode.vercel.app/registry/body-copy.json",
+    ],
     files: ["block/section-hero-1/SectionHero1.tsx"],
   },
   // {

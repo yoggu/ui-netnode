@@ -1,13 +1,13 @@
 import React from "react";
 
-// import BodyCopy from "../../ui/BodyCopy";
-// import Box from "../../ui/Box";
-// import Container from "../../ui/Container";
-// import CTALink from "../../ui/CTALink";
-// import DisplayTitle from "../../ui/DisplayTitle";
-// import Grid from "../../ui/Grid";
-// import GridItem from "../../ui/GridItem";
-// import Label from "../../ui/Label";
+import BodyCopy from "../../ui/BodyCopy";
+import Box from "../../ui/Box";
+import Container from "../../ui/Container";
+import CTALink from "../../ui/CTALink";
+import DisplayTitle from "../../ui/DisplayTitle";
+import Grid from "../../ui/Grid";
+import GridItem from "../../ui/GridItem";
+import Label from "../../ui/Label";
 import Section from "../../ui/Section";
 
 // Define the interface for props
@@ -19,15 +19,13 @@ interface SectionHero1Props {
   ctaHref?: string;
 }
 
-const SectionHero1: React.FC<SectionHero1Props> = (
-  {
-    // label,
-    // title,
-    // description,
-    // ctaText,
-    // ctaHref,
-  }
-) => {
+const SectionHero1: React.FC<SectionHero1Props> = ({
+  label,
+  title,
+  description,
+  ctaText,
+  ctaHref,
+}) => {
   return (
     <Section
       name="hero"
@@ -35,8 +33,7 @@ const SectionHero1: React.FC<SectionHero1Props> = (
       marginBottom="large"
       className="bg-surface-bright3"
     >
-      test Section
-      {/* <Container width="wide" height="hero_sub" className="h-full">
+      <Container width="wide" height="hero_sub" className="h-full">
         <Grid container gap={{ base: 2, md: 16 }} className="h-full">
           <GridItem
             size={{ base: 10, md: 6 }}
@@ -61,7 +58,7 @@ const SectionHero1: React.FC<SectionHero1Props> = (
             <div className="max-h-96"></div>
           </GridItem>
         </Grid>
-      </Container> */}
+      </Container>
     </Section>
   );
 };
