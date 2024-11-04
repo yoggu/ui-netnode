@@ -1,0 +1,18 @@
+{
+  "name": "hint",
+  "type": "registry:ui",
+  "registryDependencies": [
+    "tooltip"
+  ],
+  "dependencies": [
+    "framer-motion"
+  ],
+  "files": [
+    {
+      "type": "registry:ui",
+      "content": "\"use client\";\n\nimport {\n  Tooltip,\n  TooltipContent,\n  TooltipProvider,\n  TooltipTrigger,\n} from \"@/components/ui/tooltip\";\nimport { motion } from \"framer-motion\";\n\ntype HintProps = {\n  content: string;\n  children: React.ReactNode;\n  animationFrom?: \"top\" | \"bottom\" | \"left\" | \"right\";\n  defaultOpen?: boolean;\n  className?: string;\n  asChild?: boolean;\n  onOpenChange?: (isOpen: boolean) => void;\n  isAnimating?: boolean;\n  enabled?: boolean;\n  delay?: number;\n  animationDuration?: number;\n  animationStiffness?: number;\n};\n\nexport function Hint({\n  content,\n  children,\n  className,\n  animationFrom = \"top\",\n  asChild = false,\n  defaultOpen = false,\n  onOpenChange,\n  enabled = true,\n  delay = 0,\n  animationDuration,\n  isAnimating = true,\n  animationStiffness = 260,\n}: HintProps) {\n  // Define the motion variants based on direction\n  const variants = {\n    initial: {\n      opacity: 0,\n      x: animationFrom === \"left\" ? -20 : animationFrom === \"right\" ? 20 : 0,\n      y: animationFrom === \"top\" ? -20 : animationFrom === \"bottom\" ? 20 : 0,\n      scale: 0.8,\n    },\n    animate: {\n      opacity: 1,\n      x: 0,\n      y: 0,\n      scale: 1,\n      transition: {\n        type: \"spring\",\n        stiffness: animationStiffness,\n        damping: 10,\n        duration: !isAnimating ? 0 : animationDuration,\n      },\n    },\n    exit: {\n      opacity: 0,\n      x: animationFrom === \"left\" ? -20 : animationFrom === \"right\" ? 20 : 0,\n      y: animationFrom === \"top\" ? -20 : animationFrom === \"bottom\" ? 20 : 0,\n      scale: 0.6,\n    },\n  };\n  if(!enabled) return <>{children}</>;  \n  return (\n    <TooltipProvider>\n      <Tooltip\n        delayDuration={delay}\n        onOpenChange={onOpenChange}\n        defaultOpen={defaultOpen}\n      >\n        <TooltipTrigger asChild={asChild}>{children}</TooltipTrigger>\n        <TooltipContent side={animationFrom} asChild>\n          <motion.p\n            variants={variants}\n            initial=\"initial\"\n            animate=\"animate\"\n            exit=\"exit\"\n            className={className}\n          >\n            {content}\n          </motion.p>\n        </TooltipContent>\n      </Tooltip>\n    </TooltipProvider>\n  );\n}",
+      "path": "ui/hint.tsx",
+      "target": "components/ui/hint.tsx"
+    }
+  ]
+}
