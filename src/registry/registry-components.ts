@@ -42,6 +42,12 @@ export const ui: Registry = [
     files: ["ui/BodyCopy.tsx"],
   },
   {
+    name: "label",
+    type: "registry:ui",
+    files: ["ui/Label.tsx"],
+  },
+  // TODO: Add Label component
+  {
     name: "section-hero-1",
     type: "registry:block",
     registryDependencies: [
@@ -53,6 +59,7 @@ export const ui: Registry = [
       "https://ui-netnode.vercel.app/registry/cta-link.json",
       "https://ui-netnode.vercel.app/registry/display-title.json",
       "https://ui-netnode.vercel.app/registry/body-copy.json",
+      "https://ui-netnode.vercel.app/registry/label.json",
     ],
     files: ["block/section-hero-1/SectionHero1.tsx"],
   },

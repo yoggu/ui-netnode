@@ -9,7 +9,8 @@
     "https://ui-netnode.vercel.app/registry/box.json",
     "https://ui-netnode.vercel.app/registry/cta-link.json",
     "https://ui-netnode.vercel.app/registry/display-title.json",
-    "https://ui-netnode.vercel.app/registry/body-copy.json"
+    "https://ui-netnode.vercel.app/registry/body-copy.json",
+    "https://ui-netnode.vercel.app/registry/label.json"
   ],
   "files": [
     {

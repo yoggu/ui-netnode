@@ -1,0 +1,12 @@
+{
+  "name": "label",
+  "type": "registry:ui",
+  "files": [
+    {
+      "type": "registry:ui",
+      "content": "import React from 'react';\nimport { cva, VariantProps } from 'class-variance-authority';\n\nimport { cn } from '@/lib/utils';\n\n// Customized label variations using CVA\nconst labelVariants = cva(`font-medium`, {\n  variants: {\n    variant: {\n      primary: 'text-sm md:text-base text-gray-700',\n      secondary: 'text-xs md:text-sm text-gray-700',\n      tertiary: 'text-xs text-gray-600 uppercase',\n    },\n  },\n  defaultVariants: {\n    variant: 'primary',\n  },\n});\n\ninterface LabelProps extends VariantProps<typeof labelVariants> {\n  children?: React.ReactNode;\n  className?: string;\n}\n\nconst Label: React.FC<LabelProps> = ({ children, variant, className }) => {\n  return (\n    <span className={cn(labelVariants({ variant }), className)}>\n      {children}\n    </span>\n  );\n};\n\nexport default Label;\n",
+      "path": "ui/Label.tsx",
+      "target": "components/ui/Label.tsx"
+    }
+  ]
+}
