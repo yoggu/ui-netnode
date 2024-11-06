@@ -46,7 +46,6 @@ export const ui: Registry = [
     type: "registry:ui",
     files: ["ui/Label.tsx"],
   },
-  // TODO: Add Label component
   {
     name: "section-hero-1",
     type: "registry:block",
